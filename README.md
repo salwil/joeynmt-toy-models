@@ -15,7 +15,7 @@ data, train and evaluate models.
 
 Clone this repository in the desired place and check out the correct branch:
 
-    git clone https://github.com/bricksdont/joeynmt-toy-models
+    git clone https://github.com/salwil/joeynmt-toy-models
     cd joeynmt-toy-models
     checkout ex4
 
@@ -29,13 +29,9 @@ Download and install required software:
 
     ./scripts/download_install_packages.sh
 
-Download and split data:
+Download fully preprocessed corpora already in BPE format, together with some auxiliary models (truecasing model, BPE model) and vocabularies.
 
-    ./scripts/download_split_data.sh
-
-Preprocess data:
-
-    ./scripts/preprocess.sh
+    ./scripts/download_preprocessed_data.sh
 
 Then finally train a model:
 
@@ -46,3 +42,21 @@ The training process can be interrupted at any time, and the best checkpoint wil
 Evaluate a trained model with
 
     ./scripts/evaluate.sh
+
+### Summary and findings
+
+
+```
+*-------------------------*
+|  src_factors |   BLEU   | 
+|--------------------------
+|  na          |    8.5   | 
+|--------------------------
+|  add         |    0.6   |
+|--------------------------
+|  concatenate |          | 
+*-------------------------*
+
+```
+
+
