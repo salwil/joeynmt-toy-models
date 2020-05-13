@@ -45,9 +45,9 @@ Evaluate a trained model with
 
 Hint to the training and evaluating step: Make sure, you declare the correct configuration file depending on the combine method you trained your model inside the for-loop.
 
-### Summary and findings
+# Summary and findings
 
-##### Implementation
+#### Implementation
 
 * If source_factors are given, validation of the combine method and embedding dimensions (relevant if adding the vectors) is done.
 * Creation of additional embedding vector for the source factor, if config parameters are valid.
@@ -55,12 +55,12 @@ Hint to the training and evaluating step: Make sure, you declare the correct con
 * Depending on the  value of the combine_method parameter, the source factor vectors are added ('add') or concatenated ('concatenate') to the source vector. This is done inside the call of the encoder instance.
 
 
-##### Parameters setting
+#### Parameters setting
 
 * For training a model with or without source factors, set the respective config file inside the train.sh script.
 * Inside the config file the embedding dimensions have to be set accordingly. In case of addition as combine method, the embedding dimensions for the source factor embedding vectors and the embedding vectors of the source sentence have to be the same (and also match the dimension of the decoder embedding vector dimension). In case of concatenating, the two dimensions together have to be the same as the decoder embedding vector dimension (e.g. 256 + 256 = 512).
 
-##### Results
+#### Results
 
 ```
 *-------------------------*
@@ -72,7 +72,6 @@ Hint to the training and evaluating step: Make sure, you declare the correct con
 |--------------------------
 |  concatenate |          | 
 *-------------------------*
-
 ```
 
 Besides the fact, that training takes much longer, the consideration of source factors also does not have a positive impact on the BLEU score. On the contrary. It is much worse, as can be taken out of the table below. 
