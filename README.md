@@ -43,7 +43,7 @@ Evaluate a trained model with
 
     ./scripts/evaluate.sh
 
-Hint to the training and evaluating step: Make sure, you declare the correct configuration file depending on the combine method you trained your model inside the for-loop.
+**Hint to the training and evaluating step:** Make sure, you declare the correct configuration file depending on the combine method you trained your model inside the for-loop.
 
 # Summary and findings
 
