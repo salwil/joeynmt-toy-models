@@ -10,11 +10,11 @@ echo "Make sure this script is executed AFTER you have activated a virtualenv"
 
 # install joeynmt
 
-git clone https://github.com/bricksdont/joeynmt.git $tools/joeynmt
+git clone https://github.com/salwil/joeynmt.git $tools/joeynmt
 
 # if necessary: first check out the correct branch:
 
-# (cd $tools/joeynmt && git checkout [correct branch name] && git pull)
+(cd $tools/joeynmt && git checkout source_factors && git pull)
 
 (cd $tools/joeynmt && pip install --upgrade .)
 
