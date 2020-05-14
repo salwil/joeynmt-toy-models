@@ -70,14 +70,14 @@ Evaluate a trained model with
 |--------------------------
 |  add         |    0.6   |
 |--------------------------
-|  concatenate |          | 
+|  concatenate |    2.4   | 
 *-------------------------*
 ```
 
 Besides the fact, that training takes much longer, the consideration of source factors also does not have a positive impact on the BLEU score. On the contrary. It is much worse, as can be taken out of the table below. 
 
 * combine method 'add': Took obviously longer runtime to train the model and the result had the worse BLEU score (0.6). 
-* combine method 'concatenate': Runtime was longer than without source factors, but clearly faster than 'add'. The results were better (1.23)
+* combine method 'concatenate': Runtime took more or less the same like combine method 'add', but the results were a bit better (2.4)
 * No source factors included made the processing of course faster, because the compute-intensive operation of adding / concatenating was left out. Also the BLEU score is much better (8.5) than the other two, which is of course kind of disappointing.
 
 My assumption for the bad results in the adding method is, that the embedding vectors are manipulated in a "wrong direction" when adding the source factor embeddings (kind of just moving them around in the vector space).
