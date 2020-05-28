@@ -15,9 +15,9 @@ data, train and evaluate models.
 
 Clone this repository in the desired place and check out the correct branch:
 
-    git clone https://github.com/bricksdont/joeynmt-toy-models
+    git clone https://github.com/salwil/joeynmt-toy-models
     cd joeynmt-toy-models
-    checkout ex4
+    checkout ex5
 
 Create a new virtualenv that uses Python 3. Please make sure to run this command outside of any virtual Python environment:
 
@@ -31,9 +31,13 @@ Download and install required software:
 
 Download and split data:
 
-    ./scripts/download_split_data.sh
+    ./scripts/download_data.sh
 
-Preprocess data:
+Extract only 100k lines of training data, to make the system working on a normal machine:
+    
+    ./scripts/prepare_data.sh
+
+Preprocess data (the script is designed for tokenizing and bpe):
 
     ./scripts/preprocess.sh
 
@@ -46,3 +50,26 @@ The training process can be interrupted at any time, and the best checkpoint wil
 Evaluate a trained model with
 
     ./scripts/evaluate.sh
+
+
+#### Results and findings
+
+##### Ex. 1
+
+BLEU by evaluating with translations of beam size = 5
+
+```
+*------------------------------------*
+|  use BPE     |vocab size|   BLEU   | 
+|------------------------------------*
+|  no          |   2000   |    4.5   | 
+|------------------------------------*
+|  yes         |   2000   |    6.7   |
+|------------------------------------*
+|  yes         |   4000   |    10.5  |
+*-------------------------*----------*
+
+```
+
+A model trained with subwords is obviously better than with whole words. The resulting translations have a clearly better BLEU score (6.7). When we extend the vocabulary from 2000 to 4000, the BLEU is again increased clearly to 10.5.
+
